@@ -33,8 +33,8 @@ jobs:
             swag init --generalInfo=cmd/api/service.go --output=api/swagger-spec/api
             echo "build mode: release, bin name: helloword"
             CGO_ENABLED=0 go build -o helloword -ldflags "-X 'word/pkg/app.GinMode=release' -s -w" -tags doc cmd/main.go
-            upx --best helloword -o _upx_word
-            mv -f _upx_word helloword
+#            upx --best helloword -o _upx_word
+#            mv -f _upx_word helloword
             echo ">>> build yutang service complete"
       - run:
           name: set TimeDone
