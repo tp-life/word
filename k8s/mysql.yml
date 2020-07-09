@@ -1,0 +1,91 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    name: mysql
+spec:
+  selector:
+    role: mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+  clusterIP: None
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql
+type: Opaque
+data:
+  password: MTIzNDU2Cg==
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-disk
+  labels:
+    role: mysql
+spec:
+  capacity:
+    storage: "1Gi"
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /home/zbrid/db/mysql
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+spec:
+  serviceName: "mysql"
+  replicas: 1
+  selector:
+    matchLabels:
+      role: mysql
+  template:
+    metadata:
+      name: mysql
+      labels:
+        role: mysql
+        env: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: mysql
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-persistent-storage
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql-persistent-storage
+      spec:
+        selector:
+          matchLabels:
+            role: mysql
+        storageClassName: standard
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+
+

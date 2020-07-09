@@ -1,0 +1,11 @@
+.idea
+.vscode
+yutang
+*.log
+configs/debug/application.yaml
+logs/*
+.history
+configs/debug/
+admin.pid
+api.pid
+yutang.exe

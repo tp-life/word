@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: word
+  labels:
+    app: word
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: word
+      labels:
+        app: word
+    spec:
+      containers:
+        - name: word
+          image: tp651976605/helloword:0.1.32
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /app/configs/release/application.yaml
+              name: config
+              subPath: application
+      volumes:
+        - name: config
+          configMap:
+            name: word
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: word
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: word
+spec:
+  selector:
+    app: word
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31080
+  type: NodePort

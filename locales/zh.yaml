@@ -1,0 +1,76 @@
+"old password error":
+  description: "修改密码时旧密码不对"
+  other: "原始密码错误"
+"password error":
+  other: "用户名或密码错误"
+"password are inconsistent":
+  other: "两次密码不一致"
+"user not found":
+  other: "用户名或密码错误"
+"username has been set up":
+  description: "用户名已经修改过了"
+  other: "您已设置过用户名"
+"username exists":
+  description: "用户名已存在"
+  other: "用户名已存在"
+"what's your problem":
+  description: "这是一个示例"
+  other: "你的 response msg 至少应该来这里写上这个 other 字段"
+  one: "{{.name}}支持字符模板"
+"success":
+  description: "操作成功"
+  other: "操作成功"
+"fail":
+  description: "操作失败"
+  other: "操作失败"
+"param error":
+  description: "参数错误"
+  other: "参数错误"
+"inexistence":
+  description: "对象不存在"
+  other: "对象不存在"
+"permission denied":
+  description: "没有权限"
+  other: "没有权限"
+"not authed":
+  other: "未授权"
+"invalid pay channel":
+  other: "支付渠道不正确"
+"invalid usage":
+  other: "用途不正确"
+"only wechat alipay support":
+  other: "只支持微信和支付宝"
+"insufficient balance":
+  other: "余额不足"
+"order is under paying":
+  other: "订单正在支付中"
+"request too frequent":
+  other: "请求太频繁"
+"create pay order failed":
+  other: "创建支付订单失败"
+"pay order already successed":
+  other: "订单已经成功"
+"update pay order status failed":
+  other: "更新订单状态失败"
+"desc from wallet failed":
+  other: "扣除用户平台币失败"
+"recharge wallet failed":
+  other: "充值失败"
+"not found":
+  other: "未找到"
+"nickname cannot exceed 16 letters, a han equals two letters":
+  other: "昵称长度不能超过16个英文字母, 一个汉字等于两个字母"
+"nickname cannot start with an underscore":
+  other: "昵称必须以汉字或字母开始"
+"nickname must be numeric English or Chinese":
+  other: "昵称只能包含英文, 中文和下划线"
+"upload file type not allow":
+  other: "文件类型 {{.type}} 不支持"
+"mobile message frequent":
+  other: "请{{.seconds}}秒后再尝试"
+"can't find account":
+  other: "找不到对应账号"
+"invalid login method":
+  other: "登录方式不正确"
+"no currency exists":
+  other: "货币不存在"

@@ -1,0 +1,7 @@
+###
+GET {{host}}/api/game/search
+Content-Type: application/json
+
+<> 2020-07-03T111539.200.json
+
+###

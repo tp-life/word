@@ -1,0 +1,107 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  labels:
+    name: mongo
+spec:
+  selector:
+    role: mongo
+  ports:
+    - port: 27017
+      targetPort: 27017
+  clusterIP: None
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongo
+type: Opaque
+data:
+  mongo-user: YWRtaW4K
+  mongo-password: MTIzNDU2Cg==
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-disk
+  labels:
+    role: mongo5
+spec:
+  capacity:
+    storage: "5Gi"
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /home/zbrid/db/mongo 
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-persistent-storage
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+spec:
+  serviceName: "mongo"
+  replicas: 1
+  selector:
+    matchLabels:
+      role: mongo
+  template:
+    metadata:
+      name: mongo
+      labels:
+        role: mongo
+        env: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongo
+          image: mongo:4.4-rc-bionic
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: mongo-user
+                  name: mongo
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: mongo-password
+                  name: mongo
+          command:
+            - mongod
+            - "--replSet"
+            - rs0
+            - "--bind_ip"
+            - 0.0.0.0
+#            - "--smallfiles"
+#            - "--noprealloc"
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongo-data
+      volumes:
+        - name: mongo-data
+          persistentVolumeClaim:
+            claimName: mongo-persistent-storage
