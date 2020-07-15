@@ -45,7 +45,7 @@ func (p *Post) Info() {
 }
 
 // CreatePost 创建文章
-func (p Post) CreatePost(data contracts.CreatePost) error {
+func (p Post) CreatePost(data contracts.CreatePost) (string, error) {
 	var post = entiy.Post{
 		Title:   data.Title,
 		Content: data.Content,
@@ -53,11 +53,12 @@ func (p Post) CreatePost(data contracts.CreatePost) error {
 		Status:  data.Status,
 		UserID:  p.userID,
 	}
-	_, err := mongo.Collection(post).InsertOneWithError(post)
+	insert, err := mongo.Collection(post).InsertOneWithError(post)
 	if err != nil {
-		return err
+		return "",err
 	}
-	return nil
+	id := insert.InsertedID.(primitive.ObjectID)
+	return id.Hex(),nil
 }
 
 // UpdatePost 更新文章
@@ -97,7 +98,7 @@ func (p Post) UpdateStatus(d contracts.PostStatus) error {
 }
 
 // Lists 文章列表
-func (p Post) Lists(q contracts.PostSearch) (rs []contracts.PostList, count int64) {
+func (p Post) Lists(q contracts.PostSearch, offset,limit int) (rs []contracts.PostList, count int64) {
 	cond := p.cond(q)
 	var (
 		post    entiy.Post
@@ -107,7 +108,7 @@ func (p Post) Lists(q contracts.PostSearch) (rs []contracts.PostList, count int6
 	)
 	client := mongo.Collection(post).Where(cond)
 	count = client.Count()
-	_ = client.StFindMany(&result)
+	_ = client.Skip(int64(offset)).Limit(int64(limit)).StFindMany(&result)
 	for _, v := range result {
 		pids = append(pids, v.ID.Hex())
 	}
@@ -131,6 +132,7 @@ func (p Post) Lists(q contracts.PostSearch) (rs []contracts.PostList, count int6
 			Likes:    v.Likes,
 			Fav:      v.Fav,
 			Comment:  v.Comment,
+			Content: v.Content,
 		})
 	}
 	return
@@ -177,8 +179,8 @@ func (p Post) Detail() (rs contracts.PostDetail, err error) {
 			Likes:    p.base.Likes,
 			Fav:      p.base.Fav,
 			Comment:  p.base.Comment,
+			Content: p.base.Content,
 		},
-		Content: p.base.Content,
 	}
 	return
 }

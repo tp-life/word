@@ -17,8 +17,8 @@ func ArticleLists(c *gin.Context) {
 	}
 
 	post := service.NewPost(nil, "")
-	lists, count := post.Lists(q)
-	app.OK(c, map[string]interface{}{
+	lists, count := post.Lists(q, app.Offset(c), app.Limit(c))
+	app.OriOK(c, map[string]interface{}{
 		"count": count,
 		"data":  lists,
 	})

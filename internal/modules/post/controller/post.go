@@ -16,8 +16,8 @@ func Lists(c *gin.Context) {
 		return
 	}
 	post := service.NewPost(c, "")
-	lists, count := post.Lists(q)
-	app.OK(c, map[string]interface{}{
+	lists, count := post.Lists(q, app.Offset(c), app.Limit(c))
+	app.OriOK(c, map[string]interface{}{
 		"count": count,
 		"data":  lists,
 	})
@@ -47,12 +47,12 @@ func Created(c *gin.Context) {
 		return
 	}
 	post := service.NewPost(c, "")
-	err := post.CreatePost(q)
+	id, err := post.CreatePost(q)
 	if err != nil {
 		app.F(c, app.Fail, err.Error())
 		return
 	}
-	app.OK(c, true)
+	app.OK(c, id)
 }
 
 // Update 编辑

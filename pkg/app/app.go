@@ -89,8 +89,8 @@ func OK(c *gin.Context, data interface{}, message ...string) {
 
 func OriOK(c *gin.Context, data interface{}, message ...string) {
 	status := http.StatusOK
-	NewResponse(Success, data, message...).Object(c)
-	c.PureJSON(status, data)
+	rs := NewResponse(Success, data, message...).Object(c)
+	c.PureJSON(status, rs)
 }
 
 func F(c *gin.Context, code int, message ...string) {

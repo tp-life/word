@@ -16,7 +16,6 @@ type PostStatus struct {
 // PostDetail 文章类型
 type PostDetail struct {
 	PostList
-	Content string `json:"content"`
 }
 
 // PostSearch 搜索条件
@@ -38,6 +37,7 @@ type PostList struct {
 	Likes    int      `json:"likes"`                // 喜欢数
 	Fav      int      `json:"fav"`                  // 收藏数
 	Comment  int      `json:"comment"`              // 评论数
+	Content string `json:"content"`
 }
 
 // JoinProject 加入专题

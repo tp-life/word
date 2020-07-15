@@ -51,7 +51,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -359,7 +359,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -581,7 +581,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -789,7 +789,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -1086,7 +1086,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -1238,7 +1238,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -1855,7 +1855,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -2194,7 +2194,7 @@ var doc = `{
                         "type": "integer",
                         "default": 1,
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     }
                 ],
@@ -2263,7 +2263,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -2401,7 +2401,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -3914,7 +3914,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -4903,7 +4903,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -5153,7 +5153,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "起始页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -5298,7 +5298,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "分页",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -5742,11 +5742,11 @@ var doc = `{
                             "NATIVE",
                             "JSAPI",
                             "wap",
-                            "page",
+                            "pages",
                             "pre"
                         ],
                         "type": "string",
-                        "description": "支付类型: 微信支付类型:MWEB|NATIVE|JSAPI;MWEB是H5支付,NATIVE是Native支付,JSAPI是JSAPI支付  支付宝支付类型:wap|page|pre; wap是手机网站支付,page是电脑网站支付,pre是用户扫码支付",
+                        "description": "支付类型: 微信支付类型:MWEB|NATIVE|JSAPI;MWEB是H5支付,NATIVE是Native支付,JSAPI是JSAPI支付  支付宝支付类型:wap|pages|pre; wap是手机网站支付,page是电脑网站支付,pre是用户扫码支付",
                         "name": "trade_type",
                         "in": "formData"
                     },
@@ -6195,7 +6195,7 @@ var doc = `{
                         "type": "integer",
                         "default": 1,
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     }
                 ],
@@ -7270,7 +7270,7 @@ var doc = `{
                         "type": "integer",
                         "default": 1,
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     }
                 ],
@@ -7716,7 +7716,7 @@ var doc = `{
                         "type": "integer",
                         "default": 1,
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     }
                 ],
@@ -8262,7 +8262,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {
@@ -9422,7 +9422,7 @@ var doc = `{
                         "type": "integer",
                         "default": 1,
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     }
                 ],
@@ -9505,7 +9505,7 @@ var doc = `{
                         "type": "integer",
                         "default": 1,
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     }
                 ],
@@ -10437,7 +10437,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "页码",
-                        "name": "page",
+                        "name": "pages",
                         "in": "query"
                     },
                     {

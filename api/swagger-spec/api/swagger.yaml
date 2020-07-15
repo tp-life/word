@@ -3239,7 +3239,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -3441,7 +3441,7 @@ paths:
       parameters:
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -3664,7 +3664,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -3705,7 +3705,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -3906,7 +3906,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -4028,7 +4028,7 @@ paths:
         type: string
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -4439,7 +4439,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -4642,7 +4642,7 @@ paths:
       - default: 1
         description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       produces:
       - application/json
@@ -4708,7 +4708,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -4797,7 +4797,7 @@ paths:
         type: string
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -5781,7 +5781,7 @@ paths:
         type: integer
       - description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页显示数量
         in: query
@@ -6463,7 +6463,7 @@ paths:
         type: integer
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -6607,7 +6607,7 @@ paths:
         type: string
       - description: 起始页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页条数（默认10条）
         in: query
@@ -6703,7 +6703,7 @@ paths:
         type: integer
       - description: 分页
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 条数默认10
         in: query
@@ -7074,13 +7074,13 @@ paths:
         in: formData
         name: quit_url
         type: string
-      - description: '支付类型: 微信支付类型:MWEB|NATIVE|JSAPI;MWEB是H5支付,NATIVE是Native支付,JSAPI是JSAPI支付  支付宝支付类型:wap|page|pre; wap是手机网站支付,page是电脑网站支付,pre是用户扫码支付'
+      - description: '支付类型: 微信支付类型:MWEB|NATIVE|JSAPI;MWEB是H5支付,NATIVE是Native支付,JSAPI是JSAPI支付  支付宝支付类型:wap|pages|pre; wap是手机网站支付,page是电脑网站支付,pre是用户扫码支付'
         enum:
         - MWEB
         - NATIVE
         - JSAPI
         - wap
-        - page
+        - pages
         - pre
         in: formData
         name: trade_type
@@ -7382,7 +7382,7 @@ paths:
       - default: 1
         description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       produces:
       - application/json
@@ -8096,7 +8096,7 @@ paths:
       - default: 1
         description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       produces:
       - application/json
@@ -8499,7 +8499,7 @@ paths:
       - default: 1
         description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       produces:
       - application/json
@@ -9000,7 +9000,7 @@ paths:
         type: string
       - description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页显示数量
         in: query
@@ -9648,7 +9648,7 @@ paths:
       - default: 1
         description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       produces:
       - application/json
@@ -9704,7 +9704,7 @@ paths:
       - default: 1
         description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       produces:
       - application/json
@@ -10322,7 +10322,7 @@ paths:
         type: integer
       - description: 页码
         in: query
-        name: page
+        name: pages
         type: integer
       - description: 每页显示数量
         in: query

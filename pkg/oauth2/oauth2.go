@@ -131,7 +131,7 @@ func SetAuthURLParam(key, value string) AuthCodeOption {
 	return setParam{key, value}
 }
 
-// AuthCodeURL returns a URL to OAuth 2.0 provider's consent page
+// AuthCodeURL returns a URL to OAuth 2.0 provider's consent pages
 // that asks for permissions for the required scopes explicitly.
 //
 // State is a token to protect the user from CSRF attacks. You must
